@@ -1,0 +1,54 @@
+{
+  "TableName": "dialogs",
+  "KeySchema": [
+    {
+      "AttributeName": "filmId",
+      "KeyType": "HASH"
+    },
+    {
+      "AttributeName": "dialogId",
+      "KeyType": "RANGE"
+    }
+  ],
+  "AttributeDefinitions": [
+    {
+      "AttributeName": "dialogId",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "filmId",
+      "AttributeType": "N"
+    },
+    {
+      "AttributeName": "film",
+      "AttributeType": "S"
+    }
+  ],
+  "GlobalSecondaryIndexes": [
+    {
+      "IndexName": "films",
+      "KeySchema": [
+        {
+          "AttributeName": "film",
+          "KeyType": "HASH"
+        },
+        {
+          "AttributeName": "filmId",
+          "KeyType": "RANGE"
+        }
+      ],
+      "Projection": {
+        "NonKeyAttributes": ["director", "year"],
+        "ProjectionType": "INCLUDE"
+      },
+      "ProvisionedThroughput": {
+        "ReadCapacityUnits": 5,
+        "WriteCapacityUnits": 5
+      }
+    }
+  ],
+  "ProvisionedThroughput": {
+    "ReadCapacityUnits": 5,
+    "WriteCapacityUnits": 5
+  }
+}
