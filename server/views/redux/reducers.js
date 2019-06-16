@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = apps;
+exports["default"] = apps;
 
 function apps() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {

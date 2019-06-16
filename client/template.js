@@ -2,7 +2,7 @@ function template(initialState = {}, content = "") {
   const scripts = `<script>
                    window.__STATE__ = ${JSON.stringify(initialState)}
                 </script>
-                <script src="public/client.js"></script>
+                <script src="/public/client.js"></script>
                 `;
   const page = `<!DOCTYPE html>
               <html lang="en">
